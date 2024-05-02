@@ -1,0 +1,15 @@
+Pessoal, bem vindo ao nosso repositório do Booksula!!
+Lembrando de como será o nosso workflow:
+Sem commits na main, portanto, muito cuidado ao commitar, e veja em qual branch está operando.
+A branch develop é o nosso espaço de trabalho, e se refere a qual parte do backlog estamos trabalhando naquele instante no tempo.
+E pode-se criar branches features para adicionar novas funcionalidades.
+
+Ex: Estamos fazendo a tela de login e de cadastro
+A main representa o projeto como um todo
+A develop representa o andamento da parte de login e cadastro
+E as branches features, o andamento de uma funcionalidade do login e cadastro. Por exemplo: o botão "Esqueci minha senha"
+
+Para ver em qual branch você está: git branch
+Para trocar de branch: git checkout <nome-da-outra-branch>
+Para criar nova branch: git branch <nome-da-nova>
+Para subir sua nova branch no github: git push origin <nome-da-branch> e depois git push -u origin <nome-da-branch> para linkar a branch local com a remote que acabou de subir.
