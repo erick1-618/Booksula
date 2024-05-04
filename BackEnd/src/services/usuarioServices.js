@@ -42,8 +42,55 @@ async function lerUsuarioPorId(id){
     }
 }
 
+async function atualizarUsuario(id, nome, email, password){
+    try{
+        const usuario = await knex("usuario").select("*").where({id: id}).first();
+        if(!usuario){
+            throw new Error("Não há usuário com esse id");
+        }
+        let hash;
+        if(password){
+            const salt = bcrypt.genSaltSync();
+            hash = bcrypt.hashSync(password, salt);
+        }
+        const usuarioAtualizado = {
+            nome: nome,
+            email: email,
+            password: hash
+        }
+        await knex("usuario").update(usuarioAtualizado).where({id:id});
+        return "Informações Atualizadas";
+    }catch(erro){
+        throw erro;
+    }
+}
+
+async function deletarUsuario(id){
+    try{
+        const usuario = await knex("usuario").select("*").where({id: id}).first();
+        if(!usuario){
+            throw new Error("Não há usuário com esse id");
+        }
+        await knex("usuario").delete().where({id:id});
+        return "Usuário Deletado";
+    }catch(erro){
+        throw erro;
+    }
+}
+
+async function deleteAll(){
+    try{
+        await knex("usuario").select("*").delete();
+    }catch(erro){
+        throw erro;
+    }
+}
+
 module.exports = {
     criarUsuario,
     lerUsuarios,
-    lerUsuarioPorId
+    lerUsuarioPorId,
+    atualizarUsuario,
+    deletarUsuario,
+    deleteAll
 }
