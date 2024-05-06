@@ -25,7 +25,7 @@ async function lerUsuarios(req, res){
 
 async function lerUsuarioPorId(req, res){
     try{
-        const id_usuario = req.params.id;
+        const id_usuario = req.usuario.id;
         const readService = await usuarioServices.lerUsuarioPorId(id_usuario);
         res.json({status: true, message: readService});
         console.log('controlador executado');
@@ -38,7 +38,7 @@ async function lerUsuarioPorId(req, res){
 async function atualizarUsuario(req, res){
     try{
         const {nome, email, password} = req.body;
-        const id_usuario = req.params.id;
+        const id_usuario = req.usuario.id;
         const updateService = await usuarioServices.atualizarUsuario(id_usuario, nome, email, password);
         res.json({status: true, message: updateService});
     }catch(erro){
@@ -49,7 +49,7 @@ async function atualizarUsuario(req, res){
 
 async function deletarUsuario(req, res){
     try{
-        const id_usuario = req.params.id;
+        const id_usuario = req.usario.id;
         const deleteService = await usuarioServices.deletarUsuario(id_usuario);
         res.json({status: true, message: deleteService});
     }catch(erro){
@@ -68,11 +68,24 @@ async function deleteAll(req, res){
     }
 }
 
+async function login(req, res){
+    try{
+        const {email, password} = req.body;
+        const login = await usuarioServices.login(email, password);
+
+        res.json({status: true, token: login});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
 module.exports = {
     createUsuario,
     lerUsuarios,
     lerUsuarioPorId,
     atualizarUsuario,
     deletarUsuario,
-    deleteAll
+    deleteAll,
+    login
 }

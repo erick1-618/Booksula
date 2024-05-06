@@ -1,5 +1,7 @@
+require("dotenv").config();
 const bcrypt = require("bcrypt");
 const knex = require("../database/index");
+const jwt = require("jsonwebtoken")
 
 async function criarUsuario(nome, email, password){
     try{
@@ -86,11 +88,35 @@ async function deleteAll(){
     }
 }
 
+async function login(email, password){
+    try{
+        const usuario = await knex("usuario").select("*").where({email:email}).first();
+        if(!usuario){
+            throw new Error("Usuário não existe");
+        }
+        const senhaCorreta = bcrypt.compareSync(password, usuario.password);
+        if(!senhaCorreta){
+            throw new Error("Senha incorreta");
+        }
+        const info = {
+            id: usuario.id,
+            nome: usuario.nome
+        }
+
+        const token = jwt.sign(info, process.env.JWT_KEY, {expiresIn: '24h'});
+        return token;
+
+    }catch(erro){
+        throw erro;
+    }
+}
+
 module.exports = {
     criarUsuario,
     lerUsuarios,
     lerUsuarioPorId,
     atualizarUsuario,
     deletarUsuario,
-    deleteAll
+    deleteAll,
+    login
 }
