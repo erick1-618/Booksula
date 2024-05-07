@@ -49,7 +49,7 @@ async function atualizarUsuario(req, res){
 
 async function deletarUsuario(req, res){
     try{
-        const id_usuario = req.usario.id;
+        const id_usuario = req.usuario.id;
         const deleteService = await usuarioServices.deletarUsuario(id_usuario);
         res.json({status: true, message: deleteService});
     }catch(erro){
