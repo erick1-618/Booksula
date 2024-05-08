@@ -113,10 +113,10 @@ async function login(email, password){
 
 async function verAmigos(usuario_id){
     try{
-        const amigos = await knex("amizade").select("*").where({usuario1_ID:usuario_id}).orWhere({usuario2_ID:usuario_id});
+        const amigos = await knex("amizade").select("*").where({usuario1_ID:usuario_id, status: "A"}).orWhere({usuario2_ID:usuario_id, status: "A"});
         console.log(amigos);
         if(amigos.length === 0){
-            throw new Error("Nenhum pedido de amizade solicitado");
+            throw new Error("Nenhum amigo");
         }
         return amigos
     }catch(erro){
@@ -146,6 +146,52 @@ async function adicionarAmigos(id_usuario, email){
     }
 }
 
+async function aceitarAmigo(id_usuario, email){
+    try{
+        const solicitante = await knex("usuario").select("*").where({email:email}).first();
+        if(!solicitante){
+            throw new Error("Não há usuário com este endereço de email");
+        }
+        const solicitacoes = await knex("amizade").select("*").where({usuario2_ID:id_usuario});
+        const id_solicitante = solicitante.id;
+        solicitacoes.forEach(async solicitacao => {
+            if(solicitacao.usuario1_ID == id_solicitante){
+                solicitacao.status = "A";
+                await knex("amizade").update(solicitacao).where({id: solicitacao.id});
+            }
+        });
+        return "Solicitação aceita";
+    }catch(erro){
+        throw erro;
+    }
+}
+
+async function deletarOuRejeitarAmigo(id_usuario, email){
+    try{
+        const amigo = await knex("usuario").select("*").where({email:email}).first();
+        if(!amigo){
+            throw new Error("Não há usuário com este endereço de email");
+        }
+        const solicitacoes = await knex("amizade").select("*").where({usuario2_ID:id_usuario}).orWhere({usuario1_ID:id_usuario});
+        const id_amigo = amigo.id;
+        let msg;
+        solicitacoes.forEach(async solicitacao => {
+            if(solicitacao.usuario1_ID == id_amigo || solicitacao.usuario2_ID == id_amigo){
+                if(solicitacao.status === "A"){
+                    msg = "Amigo Deletado";
+                }
+                else{
+                    msg = "Solicitação Negada";
+                }
+                await knex("amizade").delete().where({id: solicitacao.id});
+            }
+        });
+        return msg
+    }catch(erro){
+        throw erro;
+    }
+}
+
 module.exports = {
     criarUsuario,
     lerUsuarios,
@@ -155,5 +201,7 @@ module.exports = {
     deleteAll,
     login,
     verAmigos,
-    adicionarAmigos
+    adicionarAmigos,
+    aceitarAmigo,
+    deletarOuRejeitarAmigo
 }
