@@ -111,6 +111,41 @@ async function login(email, password){
     }
 }
 
+async function verAmigos(usuario_id){
+    try{
+        const amigos = await knex("amizade").select("*").where({usuario1_ID:usuario_id}).orWhere({usuario2_ID:usuario_id});
+        console.log(amigos);
+        if(amigos.length === 0){
+            throw new Error("Nenhum pedido de amizade solicitado");
+        }
+        return amigos
+    }catch(erro){
+        throw erro;
+    }
+}
+
+async function adicionarAmigos(id_usuario, email){
+    try{
+        console.log("Chegou até o select");
+        console.log("Email do amigo:" + email);
+
+        const amigo = await knex("usuario").select("*").where({email:email}).first();
+        if(!amigo){
+            throw new Error("Não há perfil com este endereço de email");
+        }
+        const amizade = {
+            status: "P",
+            usuario1_ID: id_usuario,
+            usuario2_ID: amigo.id
+        }
+        console.log("chegou até o insert");
+        await knex("amizade").insert(amizade);
+        return "Solicitação enviada"
+    }catch(erro){
+        throw erro;
+    }
+}
+
 module.exports = {
     criarUsuario,
     lerUsuarios,
@@ -118,5 +153,7 @@ module.exports = {
     atualizarUsuario,
     deletarUsuario,
     deleteAll,
-    login
+    login,
+    verAmigos,
+    adicionarAmigos
 }

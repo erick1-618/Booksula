@@ -10,6 +10,10 @@ router.patch("/usuario", auth, usuarioControlador.atualizarUsuario);
 router.delete("/usuario", auth, usuarioControlador.deletarUsuario);
 router.delete("/deleteAll", usuarioControlador.deleteAll); //DELETA TODOS OS USUÁRIOS CADASTRADOS!
 
+//ROTAS PARA O BÔNUS DE AMIGOS
+router.get("/usuario/amigos", auth, usuarioControlador.verAmigos);
+router.post("/usuario/amigos", auth, usuarioControlador.adicionarAmigos);
+
 router.post("/login", usuarioControlador.login);
 
 router.get("/", (req, res) => {

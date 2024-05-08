@@ -80,6 +80,33 @@ async function login(req, res){
     }
 }
 
+async function verAmigos(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const verAmigos = await usuarioServices.verAmigos(id_usuario);
+        
+        res.json({status: true, message: verAmigos});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
+async function adicionarAmigos(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const email = req.body.email;
+        const adicionarAmigos = await usuarioServices.adicionarAmigos(id_usuario, email);
+        
+        res.json({status: true, message: adicionarAmigos});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
+
+
 module.exports = {
     createUsuario,
     lerUsuarios,
@@ -87,5 +114,7 @@ module.exports = {
     atualizarUsuario,
     deletarUsuario,
     deleteAll,
-    login
+    login,
+    verAmigos,
+    adicionarAmigos
 }
