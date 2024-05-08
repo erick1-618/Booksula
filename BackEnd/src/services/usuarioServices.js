@@ -114,11 +114,10 @@ async function login(email, password){
 async function verAmigos(usuario_id){
     try{
         const ligacoesAmigos = await knex("amizade").select("*").where({usuario1_ID:usuario_id, status: "A"}).orWhere({usuario2_ID:usuario_id, status: "A"});
-        console.log(ligacoesAmigos);
         if(ligacoesAmigos.length === 0){
             throw new Error("Nenhum amigo");
         }
-        return amigos
+        return ligacoesAmigos;
     }catch(erro){
         throw erro;
     }
