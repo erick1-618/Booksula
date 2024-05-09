@@ -117,7 +117,17 @@ async function verAmigos(usuario_id){
         if(ligacoesAmigos.length === 0){
             throw new Error("Nenhum amigo");
         }
-        return ligacoesAmigos;
+        let amigos = [];
+        for(const ligacao of ligacoesAmigos){
+            if(ligacao.usuario1_ID === usuario_id){
+                amigos.push(await knex("usuario").select("*").where({id: ligacao.usuario2_ID}).first());
+            }
+            else{
+                amigos.push(await knex("usuario").select("*").where({id: ligacao.usuario1_ID}).first());
+            }
+        }
+
+        return amigos;
     }catch(erro){
         throw erro;
     }
@@ -125,21 +135,32 @@ async function verAmigos(usuario_id){
 
 async function adicionarAmigos(id_usuario, email){
     try{
-        console.log("Chegou até o select");
-        console.log("Email do amigo:" + email);
-
         const amigo = await knex("usuario").select("*").where({email:email}).first();
         if(!amigo){
             throw new Error("Não há perfil com este endereço de email");
         }
-        const amizade = {
+        if(amigo.id === id_usuario){
+            throw new Error("Não pode se adicionar como amigo");
+        }
+
+        amizade = await knex("amizade").select("*").where({usuario1_ID: id_usuario, usuario2_ID: amigo.id}).orWhere({usuario2_ID: id_usuario, usuario1_ID: amigo.id}).first();
+        if(amizade){
+            if(amizade.status === "P"){
+                throw new Error("Solicitação pendente ");
+            }
+            else{
+                throw new Error("Já amigos");
+            }
+        }
+
+        const solicitacao = {
             status: "P",
             usuario1_ID: id_usuario,
             usuario2_ID: amigo.id
         }
-        console.log("chegou até o insert");
-        await knex("amizade").insert(amizade);
-        return "Solicitação enviada"
+        await knex("amizade").insert(solicitacao);
+        
+        return "Solicitação enviada";
     }catch(erro){
         throw erro;
     }
@@ -151,14 +172,21 @@ async function aceitarAmigo(id_usuario, email){
         if(!solicitante){
             throw new Error("Não há usuário com este endereço de email");
         }
-        const solicitacoes = await knex("amizade").select("*").where({usuario2_ID:id_usuario});
-        const id_solicitante = solicitante.id;
-        solicitacoes.forEach(async solicitacao => {
-            if(solicitacao.usuario1_ID == id_solicitante){
-                solicitacao.status = "A";
-                await knex("amizade").update(solicitacao).where({id: solicitacao.id});
-            }
-        });
+        if(solicitante.id === id_usuario){
+            throw new Error("Não pode aceitar solicitação de si mesmo");
+        }
+
+        const solicitacao = await knex("amizade").select("*").where({usuario2_ID:id_usuario, usuario1_ID:solicitante.id}).first();
+        if(!solicitacao){
+            throw new Error("Não há solicitações por parte desse usuário");
+        }
+        if(solicitacao.status === "A"){
+            throw new Error("Solicitação já aceita");
+        }
+
+        solicitacao.status = "A";
+        await knex("amizade").update(solicitacao).where({id:solicitacao.id});
+
         return "Solicitação aceita";
     }catch(erro){
         throw erro;
@@ -171,21 +199,27 @@ async function deletarOuRejeitarAmigo(id_usuario, email){
         if(!amigo){
             throw new Error("Não há usuário com este endereço de email");
         }
-        const solicitacoes = await knex("amizade").select("*").where({usuario2_ID:id_usuario}).orWhere({usuario1_ID:id_usuario});
-        const id_amigo = amigo.id;
+        const amizade = await knex("amizade").select("*").where({usuario1_ID:id_usuario, usuario2_ID:amigo.id}).orWhere({usuario2_ID:id_usuario, usuario1_ID:amigo.id}).first();
+        if(!amizade){
+            throw new Error("Não existe amizade");
+        }
         let msg;
-        solicitacoes.forEach(async solicitacao => {
-            if(solicitacao.usuario1_ID == id_amigo || solicitacao.usuario2_ID == id_amigo){
-                if(solicitacao.status === "A"){
-                    msg = "Amigo Deletado";
-                }
-                else{
-                    msg = "Solicitação Negada";
-                }
-                await knex("amizade").delete().where({id: solicitacao.id});
-            }
-        });
-        return msg
+        if(amizade.status === "A"){
+            msg = "Amigo excluído";
+        }
+        else{
+            msg = "Solicitação cancelada";
+        }
+        await knex("amizade").delete().where({id:amizade.id});
+        return msg;
+    }catch(erro){
+        throw erro;
+    }
+}
+
+async function deleteAllFriends(){
+    try{
+        await knex("amizade").select("*").delete();
     }catch(erro){
         throw erro;
     }
@@ -202,5 +236,6 @@ module.exports = {
     verAmigos,
     adicionarAmigos,
     aceitarAmigo,
-    deletarOuRejeitarAmigo
+    deletarOuRejeitarAmigo,
+    deleteAllFriends
 }

@@ -15,6 +15,7 @@ router.get("/usuario/amigos", auth, usuarioControlador.verAmigos);
 router.post("/usuario/amigos", auth, usuarioControlador.adicionarAmigos);
 router.patch("/usuario/amigos", auth, usuarioControlador.aceitarSolicitacao);
 router.delete("/usuario/amigos", auth, usuarioControlador.deletarOuRejeitarAmigo);
+router.delete("/usuario/amigos/deleteAll", usuarioControlador.deleteAllFriends);
 
 router.post("/login", usuarioControlador.login);
 

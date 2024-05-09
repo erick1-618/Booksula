@@ -131,6 +131,16 @@ async function deletarOuRejeitarAmigo(req, res){
     }
 }
 
+async function deleteAllFriends(req, res){
+    try{
+        const deleteAllService = await usuarioServices.deleteAllFriends();
+        res.json({status: true, message: deleteAllService});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
 
 
 module.exports = {
@@ -144,5 +154,6 @@ module.exports = {
     verAmigos,
     adicionarAmigos,
     aceitarSolicitacao,
-    deletarOuRejeitarAmigo
+    deletarOuRejeitarAmigo,
+    deleteAllFriends
 }
