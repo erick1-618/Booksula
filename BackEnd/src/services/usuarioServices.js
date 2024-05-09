@@ -73,7 +73,7 @@ async function deletarUsuario(id){
         if(!usuario){
             throw new Error("Não há usuário com esse id");
         }
-        await knex("amizade").delete().where({usuario1_ID: id}).orWhere({usuario2_ID: id});
+        await knex("amizade").delete().where({usuario1_ID: id}).orWhere({usuario2_ID: id}); //Deletar todos as amizades desse usuário;
         await knex("usuario").delete().where({id:id});
         
         return "Usuário Deletado";
