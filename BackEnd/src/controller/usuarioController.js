@@ -12,17 +12,6 @@ async function createUsuario(req, res){
     }
 }
 
-async function lerUsuarios(req, res){
-    try{
-        const readService = await usuarioServices.lerUsuarios();
-        res.json({status: true, message: readService});
-        console.log('controlador executado');
-    }catch(erro){
-        console.log(erro);
-        res.json({status: false, message: erro.message});
-    }
-}
-
 async function lerUsuarioPorId(req, res){
     try{
         const id_usuario = req.usuario.id;
@@ -52,16 +41,6 @@ async function deletarUsuario(req, res){
         const id_usuario = req.usuario.id;
         const deleteService = await usuarioServices.deletarUsuario(id_usuario);
         res.json({status: true, message: deleteService});
-    }catch(erro){
-        console.log(erro);
-        res.json({status: false, message: erro.message});
-    }
-}
-
-async function deleteAll(req, res){
-    try{
-        const deleteAllService = await usuarioServices.deleteAll();
-        res.json({status: true, message: deleteAll});
     }catch(erro){
         console.log(erro);
         res.json({status: false, message: erro.message});
@@ -131,29 +110,14 @@ async function deletarOuRejeitarAmigo(req, res){
     }
 }
 
-async function deleteAllFriends(req, res){
-    try{
-        const deleteAllService = await usuarioServices.deleteAllFriends();
-        res.json({status: true, message: deleteAllService});
-    }catch(erro){
-        console.log(erro);
-        res.json({status: false, message: erro.message});
-    }
-}
-
-
-
 module.exports = {
     createUsuario,
-    lerUsuarios,
     lerUsuarioPorId,
     atualizarUsuario,
     deletarUsuario,
-    deleteAll,
     login,
     verAmigos,
     adicionarAmigos,
     aceitarSolicitacao,
     deletarOuRejeitarAmigo,
-    deleteAllFriends
 }
