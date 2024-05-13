@@ -52,10 +52,16 @@ async function criarUsuario(nome, email, password){
 
 async function lerUsuarioPorId(id){
     try{
-        const usuario = await knex("usuario").select("*").where({id: id}).first();
-        if(!usuario){
+        const isUser = await knex("usuario").select("*").where({id: id}).first();
+        if(!isUser){
             throw new Error("Não há usuário com esse id");
         }
+
+        const usuario = {
+            nome: isUser.nome,
+            email: isUser.email
+        }
+
         return usuario;
     }catch(erro){
         throw erro;
