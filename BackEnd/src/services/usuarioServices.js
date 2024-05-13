@@ -56,7 +56,6 @@ async function lerUsuarioPorId(id){
         if(!isUser){
             throw new Error("Não há usuário com esse id");
         }
-
         const usuario = {
             nome: isUser.nome,
             email: isUser.email
@@ -144,6 +143,32 @@ async function verAmigos(usuario_id){
                 amigos.push(await knex("usuario").select("*").where({id: ligacao.usuario1_ID}).first());
             }
         }
+
+        amigos = amigos.map(amigo => {
+            delete amigo.password;
+            return amigo;
+        })
+
+        return amigos;
+    }catch(erro){
+        throw erro;
+    }
+}
+
+async function verSolicitacoes(usuario_id){
+    try{
+        const solicitacoes = await knex("amizade").select("*").where({usuario2_ID: usuario_id, status: "P"});
+        if(solicitacoes.length === 0){
+            throw new Error("Não há solicitações");
+        }
+        let amigos = [];
+        for(const solicitacao of solicitacoes){
+            amigos.push(await knex("usuario").select("*").where({id: solicitacao.usuario1_ID}).first());
+        }
+        amigos = amigos.map(amigo => {
+            delete amigo.password;
+            return amigo;
+        });
 
         return amigos;
     }catch(erro){
@@ -242,6 +267,7 @@ module.exports = {
     deletarUsuario,
     login,
     verAmigos,
+    verSolicitacoes,
     adicionarAmigos,
     aceitarAmigo,
     deletarOuRejeitarAmigo

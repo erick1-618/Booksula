@@ -71,6 +71,18 @@ async function verAmigos(req, res){
     }
 }
 
+async function verSolicitacoes(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const verSolicitacoes = await usuarioServices.verSolicitacoes(id_usuario);
+        
+        res.json({status: true, message: verSolicitacoes});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
 async function adicionarAmigos(req, res){
     try{
         const id_usuario = req.usuario.id;
@@ -117,6 +129,7 @@ module.exports = {
     deletarUsuario,
     login,
     verAmigos,
+    verSolicitacoes,
     adicionarAmigos,
     aceitarSolicitacao,
     deletarOuRejeitarAmigo,
