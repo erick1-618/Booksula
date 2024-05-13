@@ -12,17 +12,6 @@ async function createUsuario(req, res){
     }
 }
 
-async function lerUsuarios(req, res){
-    try{
-        const readService = await usuarioServices.lerUsuarios();
-        res.json({status: true, message: readService});
-        console.log('controlador executado');
-    }catch(erro){
-        console.log(erro);
-        res.json({status: false, message: erro.message});
-    }
-}
-
 async function lerUsuarioPorId(req, res){
     try{
         const id_usuario = req.usuario.id;
@@ -58,16 +47,6 @@ async function deletarUsuario(req, res){
     }
 }
 
-async function deleteAll(req, res){
-    try{
-        const deleteAllService = await usuarioServices.deleteAll();
-        res.json({status: true, message: deleteAll});
-    }catch(erro){
-        console.log(erro);
-        res.json({status: false, message: erro.message});
-    }
-}
-
 async function login(req, res){
     try{
         const {email, password} = req.body;
@@ -82,10 +61,8 @@ async function login(req, res){
 
 module.exports = {
     createUsuario,
-    lerUsuarios,
     lerUsuarioPorId,
     atualizarUsuario,
     deletarUsuario,
-    deleteAll,
     login
 }

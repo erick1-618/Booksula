@@ -1,10 +1,40 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
 const knex = require("../database/index");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const validator = require("validator");
+
+function validarNomeUsuario(nome){
+    const regex = /^[a-zA-Z0-9_]{3,16}$/;
+    return regex.test(nome);
+}
 
 async function criarUsuario(nome, email, password){
     try{
+        const jaExisteUsuario = await knex("usuario").select("*").where({email: email}).first();
+        if(jaExisteUsuario){
+            throw new Error("Já existe usuário com esse endereço de email");
+        }
+        if(nome === "" || email === "" || password === ""){
+            throw new Error("Preencha todos os campos obrigatórios");
+        }
+        if(!(validator.isEmail(email))){
+            throw new Error("Insira um email válido");
+        }
+        if(!(validarNomeUsuario(nome))){
+            throw new Error("O nome de usuário deve conter apenas letras, números e (_). Deve ter no mínimo 3 e máximo 16 caracteres");
+        }
+        if(!validator.isStrongPassword(password, {
+            minLength: 8,
+            minLowercase: 1,
+            minUppercase: 1,
+            minNumbers: 1,
+            minSymbols: 1,
+            returnScore: false
+        })){
+            throw new Error("A senha deve conter no mínimo 8 caracteres, uma letra maiúscula e uma minúscula, um símbolo e um número");
+        }
+
         const salt = bcrypt.genSaltSync();
         const hash = bcrypt.hashSync(password, salt);
         const usuario = {
@@ -15,18 +45,6 @@ async function criarUsuario(nome, email, password){
         await knex("usuario").insert(usuario);
         console.log('serviço acessado');
         return "Usuario cadastrado";
-    }catch(erro){
-        throw erro;
-    }
-}
-
-async function lerUsuarios(){
-    try{
-        const usuarios = await knex("usuario").select("*");
-        if(usuarios.length === 0){
-            throw new Error("Sem usuários cadastrados");
-        }
-        return usuarios;
     }catch(erro){
         throw erro;
     }
@@ -80,14 +98,6 @@ async function deletarUsuario(id){
     }
 }
 
-async function deleteAll(){
-    try{
-        await knex("usuario").select("*").delete();
-    }catch(erro){
-        throw erro;
-    }
-}
-
 async function login(email, password){
     try{
         const usuario = await knex("usuario").select("*").where({email:email}).first();
@@ -113,10 +123,8 @@ async function login(email, password){
 
 module.exports = {
     criarUsuario,
-    lerUsuarios,
     lerUsuarioPorId,
     atualizarUsuario,
     deletarUsuario,
-    deleteAll,
     login
 }
