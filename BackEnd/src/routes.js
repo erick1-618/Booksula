@@ -15,11 +15,11 @@ router.post("/login", usuarioControlador.login);
 
 //CRUD resenha:
 
-router.post("/resenha", resenhaControlador.createResenha);
+router.post("/resenha", auth, resenhaControlador.createResenha);
 router.get("/resenha/all", resenhaControlador.lerResenha);
 router.get("/resenha/:id", resenhaControlador.lerResenhaPorId);
-router.patch("/resenha/:id",resenhaControlador.atualizarResenha);
-router.delete("/resenha/:id", resenhaControlador.deletarResenha);
+router.patch("/resenha/:id", auth, resenhaControlador.atualizarResenha);
+router.delete("/resenha/:id", auth, resenhaControlador.deletarResenha);
 router.delete("/deleteAllresenha", resenhaControlador.deleteAll); //DELETA TODAS AS RESENHAS CADASTRADAS!
 
 

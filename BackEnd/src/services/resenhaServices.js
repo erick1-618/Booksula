@@ -1,9 +1,10 @@
 require("dotenv").config();
 const knex = require("../database/index");
 
-async function createResenha(livro, titulo_da_resenha, conteudo, nota, imagem){
+async function createResenha(usuario_id, livro, titulo_da_resenha, conteudo, nota, imagem){
     try{
         const resenha = {
+            usuario_id: usuario_id,
             livro: livro,
             titulo_da_resenha: titulo_da_resenha,
             conteudo: conteudo,

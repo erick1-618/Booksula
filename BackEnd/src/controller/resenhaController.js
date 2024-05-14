@@ -2,8 +2,9 @@ const resenhaService = require("../services/resenhaServices");
 
 async function createResenha(req, res){
     try{
+        const usuario_id = req.usuario.id;
         const {livro, titulo_da_resenha, conteudo, nota, imagem} = req.body;
-        const createService = await resenhaService.createResenha(livro, titulo_da_resenha, conteudo, nota, imagem);
+        const createService = await resenhaService.createResenha(usuario_id, livro, titulo_da_resenha, conteudo, nota, imagem);
          res.json({ status: true, message: createService});
          console.log('controlador executado');
 
@@ -43,6 +44,7 @@ async function atualizarResenha(req, res){
     try{
         const {livro, titulo_da_resenha, conteudo, nota, imagem} = req.body;
         const id = req.params.id;
+        const usuario_id = req.usuario.id;
         const updateService = await resenhaService.atualizarResenha(id, livro, titulo_da_resenha, conteudo, nota, imagem);   
         res.json({status: true, message: updateService})
     }catch(erro){
@@ -55,6 +57,7 @@ async function atualizarResenha(req, res){
 
 async function deletarResenha(req, res){
     try{
+        const id_usuario = req.usuario.id;
         const id_resenha = req.params.id;
         const deleteService = await resenhaService.deletarResenha(id_resenha);
 
