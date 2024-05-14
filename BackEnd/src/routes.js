@@ -8,7 +8,6 @@ router.post("/usuario", usuarioControlador.createUsuario);
 router.get("/usuario", auth, usuarioControlador.lerUsuarioPorId);
 router.patch("/usuario", auth, usuarioControlador.atualizarUsuario);
 router.delete("/usuario", auth, usuarioControlador.deletarUsuario);
-
 router.post("/login", usuarioControlador.login);
 
 //CRUD resenha:
@@ -20,7 +19,11 @@ router.patch("/resenha/:id",resenhaControlador.atualizarResenha);
 router.delete("/resenha/:id", resenhaControlador.deletarResenha);
 router.delete("/deleteAllresenha", resenhaControlador.deleteAll); //DELETA TODAS AS RESENHAS CADASTRADAS!
 
+//Favoritar resenhas:
 
+router.post("/usuario/favoritas", auth, usuarioControlador.favoritarResenha);
+router.get("/usuario/favoritas", auth, usuarioControlador.verResenhasFavoritadas);
+router.delete("/usuario/favoritas", auth, usuarioControlador.excluirDosFavoritos);
 
 router.get("/", (req, res) => {
     res.send("Booksula");
