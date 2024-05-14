@@ -97,6 +97,8 @@ async function deletarUsuario(id){
         if(!usuario){
             throw new Error("Não há usuário com esse id");
         }
+        await knex("resenhas_favoritadas").delete().where({usuario_id: id});
+        await knex("resenha").delete().where({usuario_id: id});
         await knex("usuario").delete().where({id:id});
         return "Usuário Deletado";
     }catch(erro){
@@ -141,6 +143,9 @@ async function favoritarResenha(id_usuario, id_resenha){
         if(!resenhaExiste){
             throw new Error("Resenha não identificada");
         }
+        if(resenhaExiste.usuario_id == id_usuario){
+            throw new Error("Não pode favoritar a própria resenha");
+        }
         const favoritarResenha = {
             usuario_id: id_usuario,
             resenha_id: id_resenha
@@ -160,12 +165,11 @@ async function verResenhasFavoritadas(id_usuario){
         }
         let resenhas = [];
         for(const resFav of resenhasFavoritadas){
-            resenhas.push(await knex("resenha").select("*").where({id: resFav.resenha_id}));
+            resenhas.push(await knex("resenha").select("*").where({id: resFav.resenha_id}).first());
         }
 
         resenhas = resenhas.map(resenha => {
             delete resenha.conteudo;
-            delete resenha.nota;
             delete resenha.usuario_id;
             delete resenha.imagem;
             return resenha;
