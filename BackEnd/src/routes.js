@@ -2,6 +2,7 @@ const Router = require("express").Router;
 const router = Router();
 const usuarioControlador = require("./controller/usuarioController");
 const resenhaControlador = require("./controller/resenhaController");
+const comentarioControlador = require("./controller/comentarioControlle")
 const auth = require("./middleware/auth");
 
 router.post("/usuario", usuarioControlador.createUsuario);
@@ -21,6 +22,15 @@ router.get("/resenha/:id", resenhaControlador.lerResenhaPorId);
 router.patch("/resenha/:id", auth, resenhaControlador.atualizarResenha);
 router.delete("/resenha/:id", auth, resenhaControlador.deletarResenha);
 router.delete("/deleteAllresenha", resenhaControlador.deleteAll); //DELETA TODAS AS RESENHAS CADASTRADAS!
+
+//CRUD comentario:
+router.post("/comentario", auth, comentarioControlador.createComentario);
+router.get("/comentario/all", comentarioControlador.lerComentario);
+router.get("/comentario/:id", comentarioControlador.lerComentarioPorId);
+router.patch("/comentario/:id", auth, comentarioControlador.atualizarComentario);
+router.delete("/comentario/:id", auth, comentarioControlador.deletarComentario);
+
+
 
 
 
