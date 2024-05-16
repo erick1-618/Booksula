@@ -27,7 +27,11 @@ router.patch("/resenha/:id", auth, resenhaControlador.atualizarResenha);
 router.delete("/resenha/:id", auth, resenhaControlador.deletarResenha);
 router.delete("/deleteAllresenha", resenhaControlador.deleteAll); //DELETA TODAS AS RESENHAS CADASTRADAS!
 
+//Favoritar resenhas:
 
+router.post("/usuario/favoritas", auth, usuarioControlador.favoritarResenha);
+router.get("/usuario/favoritas", auth, usuarioControlador.verResenhasFavoritadas);
+router.delete("/usuario/favoritas", auth, usuarioControlador.excluirDosFavoritos);
 
 router.get("/", (req, res) => {
     res.send("Booksula");
