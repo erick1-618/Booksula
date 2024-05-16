@@ -59,10 +59,78 @@ async function login(req, res){
     }
 }
 
+async function verAmigos(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const verAmigos = await usuarioServices.verAmigos(id_usuario);
+        
+        res.json({status: true, message: verAmigos});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
+async function verSolicitacoes(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const verSolicitacoes = await usuarioServices.verSolicitacoes(id_usuario);
+        
+        res.json({status: true, message: verSolicitacoes});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
+async function adicionarAmigos(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const email = req.body.email; //EMAIL DE QUERM EU O USUARIO QUER ADICIONAR
+        const adicionarAmigos = await usuarioServices.adicionarAmigos(id_usuario, email);
+        
+        res.json({status: true, message: adicionarAmigos});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
+async function aceitarSolicitacao(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const email = req.body.email; //EMAIL DE QUEM O USUARIO QUER ACEITAR A SOLICITAÇÃO
+        const aceitarAmigo = await usuarioServices.aceitarAmigo(id_usuario, email);
+        
+        res.json({status: true, message: aceitarAmigo});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
+async function deletarOuRejeitarAmigo(req, res){
+    try{
+        const id_usuario = req.usuario.id;
+        const email = req.body.email; //EMAIL DE QUEM O USUARIO QUER DESFAZER A AMIZADE OU NEGAR A SOLICITAÇÃO
+        const deleteService = await usuarioServices.deletarOuRejeitarAmigo(id_usuario, email);
+        
+        res.json({status: true, message: deleteService});
+    }catch(erro){
+        console.log(erro);
+        res.json({status: false, message: erro.message});
+    }
+}
+
 module.exports = {
     createUsuario,
     lerUsuarioPorId,
     atualizarUsuario,
     deletarUsuario,
-    login
+    login,
+    verAmigos,
+    verSolicitacoes,
+    adicionarAmigos,
+    aceitarSolicitacao,
+    deletarOuRejeitarAmigo,
 }
