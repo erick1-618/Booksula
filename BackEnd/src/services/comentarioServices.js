@@ -4,12 +4,9 @@ const knex = require("../database/index");
     async function createComentario(usuario_id,conteudo,resenha_ID ){
     try{
         const comentario= {
-            usuario_id: usuario_id, 
+            usuario_ID: usuario_id, 
             conteudo: conteudo,
-            resenha_ID:resenha_ID
-            
-
-        
+            resenha_ID: resenha_ID
 
         }
     
@@ -47,7 +44,7 @@ const knex = require("../database/index");
         throw erro;
     }
 }
-    async function atualizarComentario(id, conteudo, resenha_ID){
+    async function atualizarComentario(id, conteudo){
     try{
         const comentario = await knex("comentario").select("*").where({id:id}).first();
         if(!comentario){
@@ -55,6 +52,7 @@ const knex = require("../database/index");
         }
         const novoComentario = {
         conteudo: conteudo,
+        
         }
 
         await knex("comentario").update(novoComentario).where({id:id});

@@ -3,8 +3,8 @@ const comentarioService = require("../services/comentarioServices");
     async function createComentario(req, res){  
     try{
         const usuario_id = req.usuario.id;
-        const {conteudo} = req.body;
-        const createService = await comentarioService.createComentario(usuario_id, comentario, resenha_id);
+        const {conteudo, resenha_ID} = req.body;
+        const createService = await comentarioService.createComentario(usuario_id, conteudo, resenha_ID);
          res.json({ status: true, message: createService});
          console.log('controlador executado');
 
@@ -39,10 +39,10 @@ const comentarioService = require("../services/comentarioServices");
 }
     async function atualizarComentario(req, res){
     try{
-        const { conteudo} = req.body;
+        const {conteudo} = req.body;
         const id = req.params.id;
         const usuario_id = req.usuario.id;
-        const updateService = await ComentarioService.atualizarComentario( conteudo);   
+        const updateService = await comentarioService.atualizarComentario(id,conteudo);   
         res.json({status: true, message: updateService})
     }catch(erro){
         console.log(erro);
@@ -55,7 +55,7 @@ const comentarioService = require("../services/comentarioServices");
     try{
         const id_usuario = req.usuario.id;
         const id_comentario = req.params.id;
-        const deleteService = await comentarioService.deletarcomentario(id_comentario);
+        const deleteService = await comentarioService.deletarComentario(id_comentario);
 
         res.json({status: true, message: deletarComentario})
     }catch(erro){
