@@ -25,12 +25,12 @@ router.get("/resenha/all", resenhaControlador.lerResenha);
 router.get("/resenha/:id", resenhaControlador.lerResenhaPorId);
 router.patch("/resenha/:id", auth, resenhaControlador.atualizarResenha);
 router.delete("/resenha/:id", auth, resenhaControlador.deletarResenha);
-router.delete("/deleteAllresenha", resenhaControlador.deleteAll); //DELETA TODAS AS RESENHAS CADASTRADAS!
+router.get("/usuario/:id/resenha", auth, resenhaControlador.resenhasDeUmUsuario);
 
 //CRUD comentario:
-router.post("/comentario", auth, comentarioControlador.createComentario);
-router.get("/comentario/all", comentarioControlador.lerComentario);
-router.get("/comentario/:id", comentarioControlador.lerComentarioPorId);
+router.get("/resenha/:id/comentario", auth, comentarioControlador.comentariosDeUmaResenha);
+router.post("/resenha/:id/comentario", auth, comentarioControlador.createComentario);
+router.get("/comentario/:id", auth, comentarioControlador.lerComentarioPorId);
 router.patch("/comentario/:id", auth, comentarioControlador.atualizarComentario);
 router.delete("/comentario/:id", auth, comentarioControlador.deletarComentario);
 

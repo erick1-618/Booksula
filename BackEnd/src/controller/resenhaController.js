@@ -5,13 +5,10 @@ async function createResenha(req, res){
         const usuario_id = req.usuario.id;
         const {livro, titulo_da_resenha, conteudo, nota, imagem} = req.body;
         const createService = await resenhaService.createResenha(usuario_id, livro, titulo_da_resenha, conteudo, nota, imagem);
-         res.json({ status: true, message: createService});
-         console.log('controlador executado');
-
+        res.json({ status: true, message: createService});
     }catch(erro){
         console.log(erro);
-        res.json({status: false, message: erro});
-
+        res.json({status: false, message: erro.message});
     }
 }
 
@@ -45,36 +42,34 @@ async function atualizarResenha(req, res){
         const {livro, titulo_da_resenha, conteudo, nota, imagem} = req.body;
         const id = req.params.id;
         const usuario_id = req.usuario.id;
-        const updateService = await resenhaService.atualizarResenha(id, livro, titulo_da_resenha, conteudo, nota, imagem);   
+        const updateService = await resenhaService.atualizarResenha(usuario_id, id, livro, titulo_da_resenha, conteudo, nota, imagem);   
         res.json({status: true, message: updateService})
     }catch(erro){
         console.log(erro);
         res.json({ status: false, message: erro.message})
     }
-    
-
 }
 
 async function deletarResenha(req, res){
     try{
         const id_usuario = req.usuario.id;
         const id_resenha = req.params.id;
-        const deleteService = await resenhaService.deletarResenha(id_resenha);
-
-        res.json({status: true, message: deletarResenha})
+        const deleteService = await resenhaService.deletarResenha(id_usuario, id_resenha);
+        res.json({status: true, message: deleteService})
     }catch(erro){
         console.log(erro);
         res.json({status:false, message: erro.message})
     }
 }
 
-async function deleteAll(req, res){
+async function resenhasDeUmUsuario(req, res){
     try{
-        const deleteAllService = await resenhaService.deleteAll();
-        res.json({status: true, message: deleteAll});
+        const id_usuario = req.params.id;
+        const readService = await resenhaService.resenhasDeUmUsuario(id_usuario);
+        res.json({status: true, message: readService});
     }catch(erro){
         console.log(erro);
-        res.json({status: false, message: erro.message});
+        res.json({status: false, message: erro.nessage});
     }
 }
 
@@ -84,5 +79,5 @@ module.exports = {
     lerResenhaPorId,
     atualizarResenha,
     deletarResenha,
-    deleteAll
+    resenhasDeUmUsuario
 }

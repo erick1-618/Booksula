@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const knex = require("../database/index");
 const jwt = require("jsonwebtoken");
 const validator = require("validator");
+const resenhaServices = require("./resenhaServices");
 
 function validarNomeUsuario(nome){
     const regex = /^[a-zA-Z0-9_]{3,16}$/;
@@ -96,9 +97,13 @@ async function deletarUsuario(id){
         if(!usuario){
             throw new Error("Não há usuário com esse id");
         }
+        let resenhasParaExcluir = await knex("resenha").select("*").where({usuario_id: id});
+        for(const resenhaParaExcluir of resenhasParaExcluir){
+            await resenhaServices.deletarResenha(id, resenhaParaExcluir.id);
+        } 
         await knex("resenhas_favoritadas").delete().where({usuario_id: id});
-        await knex("resenha").delete().where({usuario_id: id});
         await knex("amizade").delete().where({usuario1_ID: id}).orWhere({usuario2_ID: id}); //Deletar todos as amizades desse usuário;
+        await knex("comentario").delete().where({usuario_ID: id});
         await knex("usuario").delete().where({id:id});
         
         return "Usuário Deletado";
