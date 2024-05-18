@@ -74,6 +74,23 @@ async function atualizarUsuario(id, nome, email, password){
         if(!usuario){
             throw new Error("Não há usuário com esse id");
         }
+        if(!(validator.isEmail(email))){
+            throw new Error("Insira um email válido");
+        }
+        if(!(validarNomeUsuario(nome))){
+            throw new Error("O nome de usuário deve conter apenas letras, números e (_). Deve ter no mínimo 3 e máximo 16 caracteres");
+        }
+        if(!validator.isStrongPassword(password, {
+            minLength: 8,
+            minLowercase: 1,
+            minUppercase: 1,
+            minNumbers: 1,
+            minSymbols: 1,
+            returnScore: false
+        })){
+            throw new Error("A senha deve conter no mínimo 8 caracteres, uma letra maiúscula e uma minúscula, um símbolo e um número");
+        }
+        
         let hash;
         if(password){
             const salt = bcrypt.genSaltSync();
