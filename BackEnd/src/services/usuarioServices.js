@@ -12,6 +12,7 @@ function validarNomeUsuario(nome){
 
 async function criarUsuario(nome, email, password){
     try{
+        email = validator.trim(email);
         const jaExisteUsuario = await knex("usuario").select("*").where({email: email}).first();
         if(jaExisteUsuario){
             throw new Error("Já existe usuário com esse endereço de email");
@@ -70,6 +71,7 @@ async function lerUsuarioPorId(id){
 
 async function atualizarUsuario(id, nome, email, password){
     try{
+        email = validator.trim(email);
         const usuario = await knex("usuario").select("*").where({id: id}).first();
         if(!usuario){
             throw new Error("Não há usuário com esse id");
@@ -131,14 +133,21 @@ async function deletarUsuario(id){
 
 async function login(email, password){
     try{
+        email = validator.trim(email);
+        if(!(validator.isEmail(email))){
+            throw new Error("Deve ser um email válido");
+        }
         const usuario = await knex("usuario").select("*").where({email:email}).first();
         if(!usuario){
-            throw new Error("Usuário não existe");
+            throw new Error("Não há um usuário registrado com esse email");
         }
         const senhaCorreta = bcrypt.compareSync(password, usuario.password);
         if(!senhaCorreta){
             throw new Error("Senha incorreta");
         }
+        
+        
+
         const info = {
             id: usuario.id,
             nome: usuario.nome
