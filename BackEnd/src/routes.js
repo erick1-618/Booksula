@@ -2,7 +2,8 @@ const Router = require("express").Router;
 const router = Router();
 const usuarioControlador = require("./controller/usuarioController");
 const resenhaControlador = require("./controller/resenhaController");
-const comentarioControlador = require("./controller/comentarioControlle")
+const comentarioControlador = require("./controller/comentarioControlle");
+const favoritasControlador = require("./controller/favoritasController");
 const auth = require("./middleware/auth");
 
 //CRUD usuario
@@ -35,9 +36,9 @@ router.patch("/comentario/:id", auth, comentarioControlador.atualizarComentario)
 router.delete("/comentario/:id", auth, comentarioControlador.deletarComentario);
 
 //Favoritar resenhas;
-router.post("/usuario/favoritas", auth, usuarioControlador.favoritarResenha);
-router.get("/usuario/favoritas", auth, usuarioControlador.verResenhasFavoritadas);
-router.delete("/usuario/favoritas", auth, usuarioControlador.excluirDosFavoritos);
+router.post("/usuario/favoritas", auth, favoritasControlador.favoritarResenha);
+router.get("/usuario/favoritas", auth, favoritasControlador.verResenhasFavoritadas);
+router.delete("/usuario/favoritas", auth, favoritasControlador.excluirDosFavoritos);
 
 router.get("/", (req, res) => {
     res.send("Booksula");
