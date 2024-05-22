@@ -299,9 +299,4 @@ module.exports = {
     atualizarUsuario,
     deletarUsuario,
     login,
-    verAmigos,
-    verSolicitacoes,
-    adicionarAmigos,
-    aceitarAmigo,
-    deletarOuRejeitarAmigo
-}
+   }
