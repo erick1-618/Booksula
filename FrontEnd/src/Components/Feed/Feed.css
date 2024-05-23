@@ -1,0 +1,171 @@
+.botao_feed_perfil{
+  background-color: #342243;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  position: relative;
+  bottom: 150px;
+  right: 450px;
+  justify-content: space-between;
+  margin: 100px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.botao_feed_sair{
+  background-color: #342243;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  position: relative;
+  bottom: 300px;
+  left: 700px;
+  justify-content: space-between;
+  margin: 100px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.bloco_resenhas{
+    width: 1500px;
+    height: 700px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+    bottom: 250px; left: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: #342243;
+    border-radius: 10pc;
+}
+
+.resenha {
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  position: relative;
+  width: 1200px;
+  height: 200px;
+  left: 150px;
+  top: 20px;
+  justify-content: space-between;
+}
+
+
+.nome1{
+   align-self: flex-start; /* Alinha o elemento ao topo da div resenha */
+   padding: 20px;
+}
+
+.obj_dir{
+    align-self: flex-start; /* Alinha o elemento ao topo da div resenha */
+    padding: 20px;
+    margin-left: 600px;
+}
+
+.imagem{
+  position: relative;
+  display: flex;
+  bottom: 37px;
+  right: 35px;
+  height: 250px;
+}
+
+.circulo{
+  position: relative;
+  bottom: 700px;
+  left: 30px;
+  top: 40px;
+  height: 180px;
+  width: 184px;
+  border: solid;
+  background-color: #342243;
+  border-radius: 100%;
+}
+
+body{
+    background-color: #E5CEED;
+}
+
+.caixão {
+  background-color: #2a163a;
+  width: 70%;
+  position: relative;
+  bottom: 300px;
+  margin-left: 15%;
+  border-radius: 3%;
+  margin-top: 5%;
+}
+
+.caixa1 {
+  background-color: white;
+  border: solid 4px black;
+  border-radius: 20px;
+  margin: 5%;
+  color: #4A4A4A
+}
+
+.data1 {
+  text-align: end;
+  font-size: 20px;
+}
+
+.obra {
+  text-align: end;
+  font-size: 20px;
+}
+
+.Nome1 {
+  text-align: start;
+  font-size: 20px;
+}
+
+.Previa1 {
+  text-align: start;
+  font-size: 20px;
+}
+
+.Nome {
+  display: flex;
+  align-items: center; 
+}
+
+.custom-icon {
+  font-size: 50px; 
+  margin-right: 8px; 
+}
+.data1{
+  margin-right: 40px;
+}
+.obra{
+  margin-right: 40px;
+}
+.custom-icon1{
+  font-size: 150px;
+  padding: 20px;
+  color: #E5CEED;
+}
+
+.Titulo00{
+  position: absolute;
+  top: 30px;
+  left: 150px;
+  color: #E5CEED ;
+  text-decoration: underline;
+}
+.Titulo02{
+  font-size: 27px;
+  margin-right: 61%;
+  color: #E5CEED;
+  text-decoration: underline;
+}
+
+.Titulo02 {
+  text-align: center;
+}
+
+.Titulo_central {
+  font-size: 2em;
+}

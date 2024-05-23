@@ -1,0 +1,134 @@
+body{
+    background-color:#E6DCEE;
+  }
+  .NaveBar{
+    background-color: #2a163a;
+    width: 100%;
+    height: 5em;
+  }
+  .Titulo00{
+    position: absolute;
+    top: 60px;
+    left: 150px;
+    color: #E5CEED ;
+    text-decoration: underline;
+  }
+  .Titulo02{
+    font-size: 27px;
+    margin-right: 61%;
+    color: #E5CEED;
+    text-decoration: underline;
+  }
+  .button-20{
+    background-color: #342243;
+    border-radius: 30px;
+    padding: 10px 20px;
+    position: relative;
+    top: 50px;
+    left: 1650px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  .custom-icon1{
+    font-size: 150px;
+    padding: 20px;
+    color: #E5CEED;
+  }
+  
+  
+  .button-20:focus:not(:focus-visible),
+  .button-20:focus {
+    outline: 0;
+  }
+  
+  .button-20:hover {
+    background-color: #3733E5;
+    border-color: #3733E5;
+  }
+  
+  .button-20:focus {
+    background-color: #413FC5;
+    border-color: #3E3BBA;
+    box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+  }
+  
+  .button-20:active {
+    background-color: #3E3BBA;
+    background-image: none;
+    border-color: #3A38AE;
+    box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
+  }
+  
+  .button-20:active:focus {
+    box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+  }
+  
+  .button-20:disabled {
+    background-image: none;
+    box-shadow: none;
+    opacity: .65;
+    pointer-events: none;
+  }
+  
+  .Titulo02 {
+    text-align: center;
+  }
+  
+  .Titulo_central {
+    font-size: 2em;
+  }
+  
+  .caixão {
+    background-color: #2a163a;
+    width: 70%;
+    position: relative;
+    top: -40px;
+    margin-left: 15%;
+    border-radius: 3%;
+    margin-top: 5%;
+  }
+  
+  .caixa1 {
+    background-color: white;
+    border: solid 4px black;
+    border-radius: 20px;
+    margin: 5%;
+    color: #4A4A4A
+  }
+  
+  .data1 {
+    text-align: end;
+    font-size: 20px;
+  }
+  
+  .obra {
+    text-align: end;
+    font-size: 20px;
+  }
+  
+  .Nome1 {
+    text-align: start;
+    font-size: 20px;
+  }
+  
+  .Previa1 {
+    text-align: start;
+    font-size: 20px;
+  }
+  
+  .Nome {
+    display: flex;
+    align-items: center; 
+  }
+  
+  .custom-icon {
+    font-size: 50px; 
+    margin-right: 8px; 
+  }
+  .data1{
+    margin-right: 40px;
+  }
+  .obra{
+    margin-right: 40px;
+  }
