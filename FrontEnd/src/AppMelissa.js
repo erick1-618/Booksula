@@ -1,14 +1,14 @@
 import './App.css';
 import { BiFullscreen, BiSolidUserCircle } from "react-icons/bi";
 import { BiImageAdd } from "react-icons/bi";
-import Header from './components/Header';
-import Username from './components/Username';
-import Edit from './components/Edit';
-import Options from './components/Options';
-import Fav from './components/Fav';
-import ModalEd from './components/Modaled';
-import Delete from './components/Delete';
-import Friends from './components/Friends';
+import Header from './Components/Header';
+import Username from './Components/Username';
+import Edit from './Components/Edit';
+import Options from './Components/Options';
+import Fav from './Components/Fav';
+import ModalEd from './Components/Modaled';
+import Delete from './Components/Delete';
+import Friends from './Components/Friends';
 import { useState } from 'react';
 
 function App() {
