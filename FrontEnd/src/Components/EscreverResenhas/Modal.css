@@ -1,0 +1,77 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.abrir_resenha {
+  background-color: #342243;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  position: relative;
+  bottom: 1445px;
+  right: 200px;
+  margin: 100px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.modal{
+   border-radius: 10px;
+}
+
+.modal, .overlay {
+   width: 100vw;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   position: fixed;
+}
+
+.overlay {
+   background: #342243;
+}
+.conteudo_modal {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #E5CEED;
+  padding: 14px 28px;
+  border-radius: 10px;
+  width: 700px;
+}
+
+.conteudo_modal p{
+  font-weight: bold;
+}
+
+.display_modal{
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  width: 450px;
+  height: 50px;
+  margin: 10px;
+  color: black;
+}
+
+.postar_resenha {
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  width: 100px;
+  right: 10px;
+  padding: 10px 10px;
+  border: none;
+  color:black;
+  background-color: #9874A9;
+  margin: 10px;
+  font-size: larger;
+  font-weight: bold;
+}

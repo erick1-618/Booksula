@@ -1,0 +1,107 @@
+body{
+    background-color:#E5CEED ;
+}
+
+.botao_feed_sair{
+    background-color: #342243;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    position: relative;
+    left: 700px;
+    bottom: 130px;
+    margin: 100px auto 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.imagem{
+    position: relative;
+    display: flex;
+    bottom: 37px;
+    right: 35px;
+    height: 250px;
+}
+
+.bloco_resenhas{
+    width: 1300px;
+    height: 800px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: relative;
+    bottom: 200px; left: 250px;
+    align-items: center;
+    justify-content: center;
+    background-color: #342243;
+    border-radius: 5pc;
+}
+
+.linha{
+    color:#E5CEED;
+    size: 100px;
+    width: 1300px;;
+}
+
+.bloco_resenhas h1, h2{
+    display: flex;
+    position: relative;
+    color: #E5CEED;
+    left: 100px;
+}
+
+.bloco_resenhas h2{
+    text-decoration: underline;
+}
+
+.logo{
+    position: relative;
+    width: 15%;
+    bottom: 700px;
+    left: 30px;
+    top: 40px;
+    width: 10rem;
+    border: solid;
+    background-color: #342243;
+    border-radius: 100%;
+}
+
+.circulo{
+    position: relative;
+    bottom: 700px;
+    left: 30px;
+    top: 40px;
+    height: 180px;
+    width: 184px;
+    border: solid;
+    background-color: #342243;
+    border-radius: 100%;
+}
+
+.resenha {
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    position: relative;
+    width: 1000px;
+    height: 200px;
+    left: 200px;
+    top: 20px;
+    justify-content: space-between;
+}
+
+.nome1 {
+    align-self: flex-start; /* Alinha o elemento ao topo da div resenha */
+    padding: 20px;
+}
+
+.obj_dir {
+    align-self: flex-start; /* Alinha o elemento ao topo da div resenha */
+    padding: 20px;
+}
+
+.previa_classif{
+    display:flex;
+    position: relative;
+    bottom: 100px;
+}
