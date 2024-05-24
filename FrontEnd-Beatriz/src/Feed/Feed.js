@@ -44,14 +44,9 @@ function Feed(){
                   <br></br>
                   <div className="botoes_icons">
                     <button className="comentarios">Comentários</button>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <ModalComments/>
-                  </div>                  
+                    <Heart className="heart" size={70} />             
+                  </div>
+                  <ModalComments/>                  
                 </div>
                 {/* Repetição do bloco para outras resenhas */}
                 <div className='caixa1'>
@@ -79,9 +74,9 @@ function Feed(){
                   <br></br>
                   <div className="botoes_icons">
                     <button className="comentarios">Comentários</button>
-                    <Heart size={70} />
-                    <button className="escreva_comentario">Escreva um comentário</button>
+                    <Heart className="heart" size={70} />             
                   </div>
+                  <ModalComments/>                  
                 </div>
                 <div className='caixa1'>
                   <div className='Nome1'>
@@ -108,9 +103,9 @@ function Feed(){
                   <br></br>
                   <div className="botoes_icons">
                     <button className="comentarios">Comentários</button>
-                    <Heart size={70} />
-                    <button className="escreva_comentario">Escreva um comentário</button>
+                    <Heart className="heart" size={70} />             
                   </div>
+                  <ModalComments/>                  
                 </div>
               </div>
             <Modal />            
