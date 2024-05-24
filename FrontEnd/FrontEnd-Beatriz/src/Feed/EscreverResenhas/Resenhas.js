@@ -4,8 +4,8 @@ import './Modal.css';
 function Modal(){
     const [modal, setModal] = useState(false);
     const [obra, setObra] = useState('');
-    const [autor, setAutor] = useState('');
     const [nota, setNota] = useState('');
+    const [titulo, setTitulo] = useState('');
     const [resenha, setResenha] = useState('');
     const [postagem, setPostagem] = useState ([]);
 
@@ -13,7 +13,7 @@ function Modal(){
         e.preventDefault();
         
         // Criar um objeto NewPostagem
-        const newPostagem = { obra, autor, nota, resenha };
+        const newPostagem = { obra, nota, titulo, resenha };
         console.log(newPostagem);
 
         // Atualizar o estado e o armazenamento local com uma nova postagem
@@ -23,8 +23,8 @@ function Modal(){
         
         // Limpar o forms
         setObra('');
-        setAutor('');
         setNota('');
+        setTitulo('');
         setResenha('');
         
         // Fechar o modal
@@ -63,24 +63,24 @@ function Modal(){
                             setObra(e.target.value)
                         }}
                 />
-                <p>Nome do autor da obra:</p>
+                <p>Nota/Classificação:</p>
                 <br></br>
                 <input type="text" 
                         className="display_modal"     
                         required="required"
-                        value={autor}
+                        value={nota}
                         onChange={(e) =>{
-                            setAutor(e.target.value)
+                            setNota(e.target.value)
                         }}
                 />
-                <p>Nota/Classificação:</p>
+                <p>Título:</p>
                 <br></br>
                 <input type="text" 
                         className="display_modal" 
                         required="required"
-                        value={nota}
+                        value={titulo}
                         onChange={(e) =>{
-                            setNota(e.target.value)
+                            setTitulo(e.target.value)
                         }}
                 />
                 <p>Resenha:</p>

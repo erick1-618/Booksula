@@ -11,10 +11,10 @@
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #E5CEED;
     padding: 20px;
     border-radius: 5px;
-    width: 400px;
+    width: 450px;
     max-width: 90%;
     text-align: center;
 }
@@ -22,8 +22,8 @@
 .botao_comentario {
   display: flex;
   position: relative;
-  left: 90px;
   bottom: 30px;
+  right: 80px;
   background-color: #342243;
   border-radius: 30px;
   padding: 10px 20px;
@@ -33,17 +33,35 @@
   color: #ffffff;
 }
 
+.botao_comentario:hover{
+    background-color: #2b2a93;
+    border-color: #2b2a93;
+}
+
+.areaTexto{
+    border-radius: 5px;
+}
+
+.button-20{
+    background-color: #342243;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
 .button-20:hover {
-    background-color: #0056b3;
+    background-color: #2b2a93;
+    border-color: #2b2a93;
 }
 
 .comments{
     background-color: #ffffff;
     border-radius: 20px;
+    border: solid 4px black;
     display: flex;
     position: relative;
-    width: 1200px;
+    width: 1150px;
     height: 100px;
-    left: 150px;
+    right: 150px;
     top: 100px;
 }
