@@ -43,8 +43,8 @@ body{
   }
   
   .button-20:hover {
-    background-color: #3733E5;
-    border-color: #3733E5;
+    background-color: #2b2a93;
+    border-color: #2b2a93;
   }
   
   .button-20:focus {
@@ -98,13 +98,19 @@ body{
   }
   
   .data1 {
-    text-align: end;
-    font-size: 20px;
+    display: flex;
+    position: relative;
+    left: 950px;
+    bottom: 30px;
+    font-size: 22px;
   }
   
   .obra {
-    text-align: end;
-    font-size: 20px;
+    display: flex;
+    position: relative;
+    left: 950px;
+    bottom: 30px;
+    font-size: 22px;
   }
   
   .Nome1 {
@@ -131,4 +137,13 @@ body{
   }
   .obra{
     margin-right: 40px;
+  }
+
+  .classific{
+    display: flex;
+    position: relative;
+    left: 950px;
+    bottom: 25px;
+    text-align: end;
+    font-size: 20px;
   }

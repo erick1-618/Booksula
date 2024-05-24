@@ -1,4 +1,4 @@
-import './teste.css';
+import './Usuario.css';
 import React from 'react';
 
 //img
@@ -8,12 +8,10 @@ import { UserCircle } from "phosphor-react";
 import { NotePencil } from "phosphor-react";
 
 
-function Home() {
-
+function UserResenhas() {
   return (
     <>
       <div className='geral'>
-
       <div className='NaveBar'>
       <Image/>
       </div>
@@ -40,6 +38,9 @@ function Home() {
                       <NotePencil className="custom-icon" />Prévia da resenha
                     </h3>
                   </div>
+                  <div className='classific'>
+                    <h3>Classificação</h3>
+                  </div>
                 </div>
                 {/* Repetição do bloco para outras resenhas */}
                 <div className='caixa1'>
@@ -55,6 +56,9 @@ function Home() {
                       <NotePencil className="custom-icon" />Prévia da resenha
                     </h3>
                   </div>
+                  <div className='classific'>
+                    <h3>Classificação</h3>
+                  </div>
                 </div>
                 <div className='caixa1'>
                   <div className='Nome1'>
@@ -69,14 +73,15 @@ function Home() {
                       <NotePencil className="custom-icon" />Prévia da resenha
                     </h3>
                   </div>
+                  <div className='classific'>
+                    <h3>Classificação</h3>
+                  </div>
                 </div>
               </div>
            
               </div>
-      
-    
     </>
   );
 }
 
-export default Home;
+export default UserResenhas;

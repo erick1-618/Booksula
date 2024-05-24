@@ -1,3 +1,48 @@
+.botoes_icons{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comentarios:hover {
+  background-color: #2b2a93;
+  border-color: #2b2a93;
+}
+
+.escreva_comentario:hover {
+  background-color: #2b2a93;
+  border-color: #2b2a93;
+}
+
+.comentarios{
+  display: flex;
+  position: relative;
+  right: 90px;
+  bottom: 30px;
+  background-color: #342243;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 100px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.escreva_comentario{
+  display: flex;
+  position: relative;
+  left: 90px;
+  bottom: 30px;
+  background-color: #342243;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 100px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
 .botao_feed_perfil{
   background-color: #342243;
   border-radius: 30px;
@@ -28,6 +73,16 @@
   color: #ffffff;
 }
 
+.botao_feed_sair:hover {
+  background-color: #2b2a93;
+  border-color: #2b2a93;
+}
+
+.botao_feed_perfil:hover {
+  background-color: #2b2a93;
+  border-color: #2b2a93;
+}
+
 .bloco_resenhas{
     width: 1500px;
     height: 700px;
@@ -53,16 +108,22 @@
   justify-content: space-between;
 }
 
+.nota{
+  display: flex;
+  position: relative;
+  top: 50px;
+  left: 60px;
+}
+
+.user{
+  display: flex;
+  position: relative;
+  left: 65px;
+}
 
 .nome1{
    align-self: flex-start; /* Alinha o elemento ao topo da div resenha */
    padding: 20px;
-}
-
-.obj_dir{
-    align-self: flex-start; /* Alinha o elemento ao topo da div resenha */
-    padding: 20px;
-    margin-left: 600px;
 }
 
 .imagem{
@@ -108,13 +169,19 @@ body{
 }
 
 .data1 {
-  text-align: end;
-  font-size: 20px;
+  display: flex;
+  position: relative;
+  left: 900px;
+  bottom: 50px;
+  font-size: 23px;
 }
 
 .obra {
-  text-align: end;
-  font-size: 20px;
+  display: flex;
+  position: relative;
+  left: 900px;
+  bottom: 50px;
+  font-size: 23px;
 }
 
 .Nome1 {

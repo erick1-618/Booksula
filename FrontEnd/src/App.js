@@ -1,17 +1,14 @@
 import './App.css';
-import Home from './Components/TesteUser/teste';
-{/*import Feed from './Components/Feed/Feed';
-import Home from './Components/TesteUser/teste';
-import Modal from './Components/EscreverResenhas/Resenhas';
-import UserResenha from './Components/ResenhasUser/Usuario';
-import Header from './Components/Header/Header';
-import Image from "./Components/Logo/Image";
-import Forms from "./Components/Formulario/Forms";*/}
+{/*import Feed from './Feed/Feed';
+import Modal from './EscreverResenhas/Resenhas';
+import UserResenha from './ResenhasUser/Usuario';
+import Header from './Header/Header';
+import Image from "./Logo/Image";
+import Forms from "./Formulario/Forms";*/}
 
 function App() {
   return (
     <div>
-      <Home />
       {/*<Feed />
       <Home />
       <Forms/>
