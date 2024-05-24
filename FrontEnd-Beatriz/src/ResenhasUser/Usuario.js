@@ -2,7 +2,7 @@ import './Usuario.css';
 import React from 'react';
 
 //img
-import Image from '../Logo/Image';
+import Image from './Logo/Image';
 // icons
 import { UserCircle } from "phosphor-react";
 import { NotePencil } from "phosphor-react";

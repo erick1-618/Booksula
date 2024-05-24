@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Forms.css';
-import Image from '../Logo/Image';
+import Image from './Logo/Image';
 import { UserCircle } from "phosphor-react";
 import { At } from "phosphor-react";
 import { LockSimple } from "phosphor-react";

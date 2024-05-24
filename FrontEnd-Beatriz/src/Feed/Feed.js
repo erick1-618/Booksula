@@ -1,8 +1,9 @@
-import Modal from "../EscreverResenhas/Resenhas";
-import Header from "../Header/Header";
-import ModalComments from "../ModalComentarios/ModalCom";
+import Modal from "./EscreverResenhas/Resenhas";
+import Header from "./Header/Header";
+import ModalComments from "./ModalComentarios/ModalCom";
 
 import './Feed.css';
+import './ModalComentarios/ModalCom.css';
 import { UserCircle } from "phosphor-react";
 import { NotePencil } from "phosphor-react";
 import { Heart } from "phosphor-react";
@@ -43,6 +44,12 @@ function Feed(){
                   <br></br>
                   <div className="botoes_icons">
                     <button className="comentarios">Comentários</button>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                     <ModalComments/>
                   </div>                  
                 </div>
