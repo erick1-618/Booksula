@@ -1,0 +1,224 @@
+.geral {
+  display: flex;
+  flex-direction: column;
+}
+
+.naveBar {
+  background-color: #342243;
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  justify-items: center;
+  color: white;
+}
+
+.Logo {
+  width: 10rem;
+  position: absolute;
+  top: 4%;
+  right: 82%;
+  border: solid;
+  background-color: #2a163a;
+  border-radius: 100%;
+}
+
+.Titulo {
+  margin-left: 30%;
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.menu {
+  background-color: #342243;
+  color: white;
+  position: absolute;
+  top: 50px; 
+  left: 0;
+  width: 200px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.menu p {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.Conteudo {
+  display: flex;
+}
+
+.texto1, .texto2, .texto3, .texto4, .texto5, .texto6, .texto7, .texto8, .texto9, .texto10 {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: -15px;
+  color: rgb(138, 39, 219);
+}
+
+.texto1 {
+  margin-top: 250px;
+}
+
+.Metade {
+  height: 72rem;
+  width: 30rem;
+  margin-top: 0px;
+  text-align: center;
+  background-image: url("./montanha.jpeg");
+  background-position: center center;
+}
+
+.Conteudo-direita {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Central {
+  align-items: center;
+  background-color: rgb(199, 183, 209);
+  width: 88rem;
+}
+
+.sub-navebar {
+  text-align: end;
+  margin-right: 100px;
+  margin-top: 10px;
+}
+
+.button-20 {
+  appearance: button;
+  background-color: #2a163a;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
+  border: 1px solid #4D4AE8;
+  border-radius: 1rem;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Inter,sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 10px;
+  padding: .5rem 1rem;
+  text-align: center;
+  text-transform: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-20:focus:not(:focus-visible),
+.button-20:focus {
+  outline: 0;
+}
+
+.button-20:hover {
+  background-color: #3733E5;
+  border-color: #3733E5;
+}
+
+.button-20:focus {
+  background-color: #413FC5;
+  border-color: #3E3BBA;
+  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 0 inset, rgba(46, 54, 80, 0.075) 0 1px 1px, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.button-20:active {
+  background-color: #3E3BBA;
+  background-image: none;
+  border-color: #3A38AE;
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset;
+}
+
+.button-20:active:focus {
+  box-shadow: rgba(46, 54, 80, 0.125) 0 3px 5px inset, rgba(104, 101, 235, 0.5) 0 0 0 .2rem;
+}
+
+.button-20:disabled {
+  background-image: none;
+  box-shadow: none;
+  opacity: .65;
+  pointer-events: none;
+}
+
+.Titulo02 {
+  text-align: center;
+}
+
+.Titulo_central {
+  font-size: 2em;
+}
+
+.caixão {
+  background-color: #2a163a;
+  width: 70%;
+  margin-left: 11%;
+  border: solid 6px black;
+  border-radius: 3%;
+}
+
+.caixa1 {
+  background-color: white;
+  border: solid 4px black;
+  border-radius: 50px;
+  margin: 6%;
+}
+
+.data1 {
+  text-align: end;
+  font-size: 20px;
+  margin-right: 50px;
+}
+
+.obra {
+  text-align: end;
+  font-size: 20px;
+  margin-right: 50px;
+}
+
+.Nome1 {
+  text-align: start;
+  font-size: 20px;
+}
+
+.Previa1 {
+  text-align: start;
+  font-size: 20px;
+}
+
+.Nome {
+  display: flex;
+  align-items: center; 
+}
+
+.custom-icon {
+  font-size: 30px; 
+  margin-right: 8px; 
+}
+.texto12, .texto13,.texto14, .texto15, .texto16, .texto17 {
+  display: flex;
+  justify-content: center; 
+  font-size: 16px;
+  margin-top: -15px;
+  color: rgb(134, 34, 216);
+  padding: 5px;
+  
+}
+.texto11{
+margin-top: 30%;
+color: rgb(134, 34, 216);
+}
