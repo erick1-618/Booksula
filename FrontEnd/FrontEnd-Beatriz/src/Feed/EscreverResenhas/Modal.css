@@ -6,10 +6,10 @@ body.active-modal {
 background-color: #342243;
 border-radius: 30px;
 padding: 10px 20px;
-display: flex;
-position: relative;
-bottom: 2110px;
-right: 200px;
+position: absolute;
+top: 30px; 
+left: 40%;
+transform: translateX(-50%);
 margin: 100px auto 0;
 font-size: 18px;
 font-weight: bold;

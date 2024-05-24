@@ -22,8 +22,8 @@
 .botao_comentario {
   display: flex;
   position: relative;
-  bottom: 30px;
-  right: 80px;
+  bottom: 70px;
+  left: 300px;
   background-color: #342243;
   border-radius: 30px;
   padding: 10px 20px;
@@ -62,6 +62,14 @@
     position: relative;
     width: 1150px;
     height: 100px;
-    right: 150px;
-    top: 100px;
+    right: 10px;
+    top: 10px;
+}
+
+.comments {
+    margin-top: 20px; /* Espaçamento acima dos comentários */
+}
+
+.comment {
+    margin-bottom: 10px 0; /* Espaçamento entre os comentários */
 }

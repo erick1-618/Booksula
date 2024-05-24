@@ -47,9 +47,8 @@ function ModalComments() {
             {showComments && ( // Renderizar os comentários apenas quando showComments for true
                 <div className="comments">
                     <h3>Comentários</h3>
-                    <br></br>
                     {comments.map((comment, index) => (
-                        <p key={index}>{comment}</p>
+                        <p key={index} className='comment'>{comment}</p>                   
                     ))}
                 </div>
             )}
