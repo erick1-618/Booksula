@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Login.css';
+import "./index.css"
 
 //icone
 import { FaRegUserCircle } from "react-icons/fa";
