@@ -1,4 +1,5 @@
 import './App.css';
+import Forms from "./Formulario/Forms";
 {/*import Feed from './Feed/Feed';
 import Modal from './EscreverResenhas/Resenhas';
 import UserResenha from './ResenhasUser/Usuario';
@@ -9,6 +10,7 @@ import Forms from "./Formulario/Forms";*/}
 function App() {
   return (
     <div>
+      <Forms />
       {/*<Feed />
       <Home />
       <Forms/>
