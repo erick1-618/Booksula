@@ -1,0 +1,75 @@
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #342243
+  }
+  
+  .forms{
+      width: 970px;
+      height: 600px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      position: relative;
+      top: 20px; left: 430px;
+      align-items: center;
+      justify-content: center;
+      background-color: #E5CEED;
+      border-radius: 10pc;
+  }
+  
+  #titulo{
+      position: relative;
+      left: 360px;
+      font-size: 40px;
+  }
+  
+  #linha{
+      position: relative;
+      left: 270px;
+      color: black;
+      width: 400px;
+      size: 100px;
+  }
+  
+  .subtitulo{
+      position: relative;
+      left: 210px;
+  }
+  
+  .botao_cadastrar{
+      position: relative;
+      border-radius: 5px;
+      border: none;
+      color:black;
+      background-color: #9874A9;
+      margin: 5px;
+      padding: 20px 30px;
+      width: 308px; 
+      left: 300px;
+      font-size: larger;
+      font-weight: bold;
+  }
+  
+  .display{
+      position: relative;
+      left: 300px;
+      border-radius: 5px;
+      border: none;
+      background-color: white;
+      width: 300px;
+      height: 50px;
+      margin: 5px;
+      color: black;
+  }
+  
+  .icons{
+      position: relative;
+      left: 300px;
+      color: #000000;
+  }
+  
+  .forms input {
+      font-size: 16px; /* Ajuste o tamanho conforme necessário */
+  }
+
+ 
