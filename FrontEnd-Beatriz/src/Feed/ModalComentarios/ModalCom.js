@@ -4,7 +4,7 @@ function ModalComments() {
     const [modalOpen, setModalOpen] = useState(false);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    const [showComments, setShowComments] = useState(false); // Novo estado
+    const [showComments, setShowComments] = useState(false); 
 
     const toggleModal = () => {
         setModalOpen(!modalOpen);
@@ -21,7 +21,8 @@ function ModalComments() {
         if (comment.trim()) {
             setComments([...comments, comment]);
             setComment('');
-            toggleModal();
+            setModalOpen(false);
+            setShowComments(true);
         }
     };
 
@@ -47,6 +48,7 @@ function ModalComments() {
             {showComments && ( // Renderizar os comentários apenas quando showComments for true
                 <div className="comments">
                     <h3>Comentários</h3>
+                    <p></p>
                     {comments.map((comment, index) => (
                         <p key={index} className='comment'>{comment}</p>                   
                     ))}
