@@ -1,0 +1,65 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #342243;
+}
+.Formulário{
+  background-color: #E6DCEE;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding-top: 60px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 50px;
+  border-radius: 25px;
+  color: #9874A9;
+}
+input{
+  padding:15px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}  
+.Login-titulo{
+  padding-bottom: 40px;
+}
+.E-mail{
+  width: 250px;
+}
+.Senha{
+  width: 250px;
+}
+button{
+  background-color: #9874A9;
+  border: none;
+  padding: 10px;
+  width: 85%;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+}
+.cadastro{
+  width: 100px;
+  cursor: pointer;
+}
+.esqueceu{
+  width: 150px;
+  cursor: pointer;
+}
+.div2{
+ margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+button:hover{
+  background-color: #342243;
+  cursor: pointer;
+}
+.logo{
+  height: 200px;
+}
+.Icone{
+  height: 30px;
+  width: 50px;
+}

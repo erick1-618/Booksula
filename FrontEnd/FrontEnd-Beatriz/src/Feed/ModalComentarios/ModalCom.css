@@ -1,0 +1,75 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #E5CEED;
+    padding: 20px;
+    border-radius: 5px;
+    width: 450px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.botao_comentario {
+  display: flex;
+  position: relative;
+  bottom: 70px;
+  left: 300px;
+  background-color: #342243;
+  border-radius: 30px;
+  padding: 10px 20px;
+  margin: 100px auto 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.botao_comentario:hover{
+    background-color: #2b2a93;
+    border-color: #2b2a93;
+}
+
+.areaTexto{
+    border-radius: 5px;
+}
+
+.button-20{
+    background-color: #342243;
+    border-radius: 30px;
+    padding: 10px 20px;
+    color: #ffffff;
+}
+
+.button-20:hover {
+    background-color: #2b2a93;
+    border-color: #2b2a93;
+}
+
+.comments{
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: solid 4px black;
+    display: flex;
+    position: relative;
+    width: 1150px;
+    height: 100px;
+    right: 10px;
+    top: 10px;
+}
+
+.comments {
+    margin-top: 20px; /* Espaçamento acima dos comentários */
+}
+
+.comment {
+    margin-bottom: 10px 0; /* Espaçamento entre os comentários */
+}
